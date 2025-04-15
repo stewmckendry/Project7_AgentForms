@@ -1,0 +1,14 @@
+# Core
+openai
+streamlit
+python-dotenv
+
+# Utility + validation
+pydantic
+python-dateutil
+
+# Logging and debugging
+loguru
+
+# Optional (future)
+reportlab  # For PDF generation

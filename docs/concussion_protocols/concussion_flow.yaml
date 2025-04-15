@@ -1,0 +1,15 @@
+stages:
+  - name: "Initial Screening"
+    description: "Ask basic injury and symptom questions"
+    questions:
+      - "When did the injury occur?"
+      - "What symptoms were observed?"
+      - "Was there a loss of consciousness?"
+
+  - name: "Medical Evaluation"
+    description: "Check if they were seen by a healthcare provider"
+
+  - name: "Return to Play - Stage 1"
+    description: "Symptom-limited activity, light cognitive tasks"
+
+  # ...
