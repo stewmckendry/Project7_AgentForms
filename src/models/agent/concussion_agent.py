@@ -1,6 +1,8 @@
 from src.utils.validation.response_validator import parse_date, parse_yes_no, parse_symptoms
 from src.models.llm_responsevalidators import llm_parse_date, llm_interpret_yes_no, llm_extract_symptoms
 from src.models.llm_analyze_freeform_input import analyze_freeform_input
+from src.utils.protocols.load_concussion_flow import load_concussion_flow
+from src.utils.protocols.question_loader import extract_question_list_from_yaml
 from src.utils.logging.logger import setup_logger
 logger = setup_logger()
 logger.info("Concussion agent started")
@@ -16,8 +18,10 @@ QUESTION_HANDLERS = {
 }
 
 class ConcussionAgent:
-    def __init__(self, flow):
-        self.flow = flow
+    def __init__(self, yaml_path="data/protocols/concussion_flow.yaml"):
+        logger.info("Initializing ConcussionAgent")
+        self.flow = load_concussion_flow(yaml_path)      # full stage-based flow
+        self.known_questions = extract_question_list_from_yaml(yaml_path)  # flat metadata list
         self.responses = {}
         self.current_stage = 0
         self.current_question = 0
@@ -87,11 +91,11 @@ class ConcussionAgent:
         }
 
     def record_freeform_analysis(self, user_input):
-        
+        logger.info("Recording free-form analysis")
         self.free_text = user_input
 
         # Run LLM analysis on the free-form input
-        result = analyze_freeform_input(user_input)
+        result = analyze_freeform_input(self, user_input)
 
         self.initial_analysis = {
             "free_text": user_input,

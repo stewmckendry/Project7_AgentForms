@@ -2,9 +2,9 @@ import json
 from src.models.llm_openai import call_openai_chat
 from src.utils.protocols.question_loader import extract_question_list_from_yaml
 from src.utils.logging.logger import setup_logger
-setup_logger()
+logger = setup_logger()
 
-def analyze_freeform_input(user_input):
+def analyze_freeform_input(agent, user_input):
     '''
     Analyze a free-form explanation and attempt to answer known assessment questions.
 
@@ -17,7 +17,8 @@ def analyze_freeform_input(user_input):
         - 'draft_responses': dict keyed by question_id with {value, thought, certainty, parsed_by}
         - 'summary_thought': overall explanation of what was extracted
     '''
-    questions = extract_question_list_from_yaml()
+    logger.info("Calling LLM to analyze free-form input & map to questions for concussion assessment")
+    questions = agent.known_questions
     system_prompt = (
         "You are an AI reasoning assistant helping to assess a possible concussion based on a free-form explanation.\n"
         "You will be given:\n"
