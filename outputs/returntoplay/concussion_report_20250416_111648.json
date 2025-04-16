@@ -1,0 +1,11 @@
+{
+  "Who are you reporting this for (e.g., your child, a player)?": "child",
+  "When did the injury occur?": null,
+  "What activity was the player doing at the time?": "yesterday",
+  "What symptoms did the player experience after the incident?": [],
+  "Did the player lose consciousness?": null,
+  "Has the player been seen by a healthcare provider?": false,
+  "Have they been officially diagnosed with a concussion?": false,
+  "Is the player still experiencing symptoms?": false,
+  "Has the player been cleared to return to play by a professional?": false
+}

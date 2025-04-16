@@ -1,0 +1,40 @@
+{
+  "reporter_role": {
+    "value": "my son",
+    "parsed_by": "raw"
+  },
+  "injury_date": {
+    "value": "null",
+    "parsed_by": "llm"
+  },
+  "activity_at_time": {
+    "value": "hockey",
+    "parsed_by": "raw"
+  },
+  "symptoms": {
+    "value": [
+      "symptoms: headache"
+    ],
+    "parsed_by": "llm"
+  },
+  "lost_consciousness": {
+    "value": true,
+    "parsed_by": "llm"
+  },
+  "seen_provider": {
+    "value": true,
+    "parsed_by": "llm"
+  },
+  "diagnosed_concussion": {
+    "value": false,
+    "parsed_by": "llm"
+  },
+  "still_symptomatic": {
+    "value": false,
+    "parsed_by": "llm"
+  },
+  "cleared_to_play": {
+    "value": false,
+    "parsed_by": "llm"
+  }
+}

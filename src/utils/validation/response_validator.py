@@ -1,6 +1,10 @@
 from dateutil import parser
 import re
 
+from src.utils.logging.logger import setup_logger
+logger = setup_logger()
+logger.info("User answer validation started - the non-AI / static rules methods")
+
 YES_WORDS = {"yes", "y", "yeah", "yep", "sure", "true"}
 NO_WORDS = {"no", "n", "nope", "nah", "false"}
 

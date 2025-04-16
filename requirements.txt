@@ -3,12 +3,16 @@ openai
 streamlit
 python-dotenv
 
-# Utility + validation
+# Utility + validation + data
 pydantic
 python-dateutil
+pyyaml
 
 # Logging and debugging
-loguru
+Logging
+
+# Testing
+pytest
 
 # Optional (future)
 reportlab  # For PDF generation
