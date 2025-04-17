@@ -1,0 +1,83 @@
+- stage_id: "stage_1"
+  name: "Activities of daily living and relative rest"
+  description: "For the first 24-48 hours post-injury, start with daily activities such as moving around the home, preparing meals, light walking, and social interactions, while minimizing screen time."
+  allowed_activities:
+    - "Moving around the home"
+    - "Preparing meals"
+    - "Light walking"
+    - "Social interactions (e.g., talking with friends or family)"
+  progression_criteria:
+    - "Completion of at least 24 hours in this stage"
+    - "No symptom worsening beyond mild and brief during these activities"
+  risks_if_ignored:
+    - "Skipping initial rest or doing too much too soon can worsen symptoms and prolong recovery"
+  duration_guidance: "Approximately 24-48 hours (immediate post-injury period)"
+- stage_id: "stage_2"
+  name: "Light to moderate effort aerobic exercise"
+  description: "Introduce light aerobic exercise and gradually progress to moderate-intensity exercise to safely increase heart rate without exacerbating symptoms."
+  allowed_activities:
+    - "Walking or stationary cycling at a slow to medium pace"
+    - "Light resistance training (as long as it causes no more than mild, brief symptom worsening)"
+    - "Brisk walking or moderate-paced cycling to a moderate effort (increased heart rate, but can still talk comfortably)"
+  progression_criteria:
+    - "At least 24 hours spent at this stage"
+    - "No more than mild and transient symptom increase with light-to-moderate exercise"
+  risks_if_ignored:
+    - "Overexertion (doing vigorous exercise too soon) can significantly worsen symptoms and delay recovery"
+    - "If any symptom worsening lasts more than one hour after activity, it is a red flag that the athlete is pushing too hard"
+  duration_guidance: "Minimum of 24 hours (may be longer if symptoms persist)"
+- stage_id: "stage_3"
+  name: "Individual sport-specific activities, without risk of inadvertent head impact"
+  description: "Add individual sport-specific drills with no risk of head impact, performed under supervision, to increase exercise intensity. Continue this step until the athlete can exercise with no concussion symptoms."
+  allowed_activities:
+    - "Sport-specific drills (e.g., running, skating, throwing) done individually (no other participants involved)"
+    - "Exercises in a low-risk environment away from others, supervised by a coach or trainer"
+  progression_criteria:
+    - "Minimum of 24 hours completed in this stage"
+    - "Symptom-free during sport-specific exercise (no symptoms even with increased physical exertion)"
+    - "Obtained medical clearance from a doctor before progressing to contact training"
+  risks_if_ignored:
+    - "Not avoiding head-impact situations at this stage (e.g., training with others too closely) could result in another concussion"
+    - "Skipping medical clearance or moving to contact activities before being symptom-free greatly increases risk of serious injury"
+  duration_guidance: "At least 24 hours (continue longer until able to exercise without any symptoms)"
+- stage_id: "stage_4"
+  name: "Training drills and activities with no contact"
+  description: "Resume high-intensity training with more challenging drills, but strictly without any body contact. This includes full-intensity exercises like passing drills or multi-athlete practices, as long as no impact occurs."
+  allowed_activities:
+    - "High-intensity exercise drills with no body contact (e.g., conditioning workouts)"
+    - "Passing drills and complex skill exercises involving teammates but no physical contact"
+    - "Non-contact team practices (no checking, no heading the ball, or any impact)"
+  progression_criteria:
+    - "Spent at least 24 hours in non-contact training at full intensity"
+    - "No return of concussion symptoms during high-intensity, non-contact drills"
+  risks_if_ignored:
+    - "Introducing body contact or collisions at this stage (before full clearance for contact) can cause re-injury or a new concussion"
+    - "Ignoring any recurrence of symptoms during this stage and continuing to train can set back recovery"
+  duration_guidance: "Minimum of 24 hours (typically at least one day of full-intensity practice without contact)"
+- stage_id: "stage_5"
+  name: "Return to non-competitive activities, full-contact practice and physical education activities"
+  description: "Progress to full-contact practice and other high-risk but non-competitive activities. Competitive gameplay is still excluded at this stage. The goal is to restore the athlete's confidence and assess functional skills in a controlled environment."
+  allowed_activities:
+    - "Full-contact team practices and drills (body contact allowed during training)"
+    - "Physical education class activities and other activities with risk of falls or contact (but no actual competitions)"
+    - "Non-competitive scrimmages or practice games at full intensity, without official competition play"
+  progression_criteria:
+    - "Completed at least 24 hours in full-contact practice without any symptom recurrence"
+    - "Regained confidence and functional skills as evaluated by coaches or trainers during practice"
+  risks_if_ignored:
+    - "Returning to competitive games without a successful full-contact practice can lead to insufficient recovery and higher injury risk"
+    - "If any concussion symptoms return during contact practice and are ignored, it could result in a serious setback or prolonged recovery"
+  duration_guidance: "Minimum of 24 hours (at least one full-contact practice session)"
+- stage_id: "stage_6"
+  name: "Return to sport and physical activity without restriction"
+  description: "Full return to competitive sport and all physical activities with no remaining restrictions. The athlete has been fully cleared and can participate normally."
+  allowed_activities:
+    - "All regular sport participation (games, competitions, practices) without any limitations"
+    - "High-impact and contact activities at pre-injury level (normal gameplay and training)"
+  progression_criteria:
+    - "All previous stages successfully completed with no concussion symptoms"
+    - "Medical clearance obtained and full recovery confirmed by healthcare professionals"
+  risks_if_ignored:
+    - "Returning to play before full recovery (with lingering symptoms) greatly increases the risk of worsening the injury and prolonging recovery"
+    - "Sustaining another head injury without complete recovery can lead to severe brain injury or long-term complications"
+  duration_guidance: "No specific duration (athlete remains at this unrestricted level indefinitely)"

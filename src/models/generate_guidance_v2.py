@@ -1,8 +1,7 @@
+
 import json
 from typing import Dict
 from src.models.llm_openai import call_openai_chat
-from src.utils.logging.logger import setup_logger
-logger = setup_logger()
 
 def generate_guidance(assessment_bundle: Dict) -> Dict:
     responses = assessment_bundle.get("responses", {})

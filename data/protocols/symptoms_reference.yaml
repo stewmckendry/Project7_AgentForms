@@ -1,0 +1,179 @@
+- name: Headache
+  category: physical
+  severity: moderate
+  description: A pain in the head that can range from mild to intense, sometimes described as a pressure sensation in the head.
+  flags:
+  - if the headache becomes very severe or gets worse over time
+  - if the pain does not improve with rest or medication
+  guidance: Monitor the headache's intensity. It is common after a concussion. Ensure rest and hydration; seek medical care if the headache worsens or does not improve.
+- name: Nausea
+  category: physical
+  severity: low
+  description: Feeling sick to your stomach, as if you might vomit.
+  flags:
+  - if nausea is severe or lasts a long time
+  - if it leads to vomiting
+  guidance: Nausea often happens soon after the injury and usually passes. If it persists for an extended period or results in vomiting, seek medical advice.
+- name: Vomiting
+  category: physical
+  severity: moderate
+  description: The act of throwing up the stomach's contents after the injury.
+  flags:
+  - if more than one episode of vomiting occurs
+  - if vomiting continues or starts again hours after the injury
+  guidance: Vomiting once can happen with a concussion, but repeated vomiting is a danger sign. If someone vomits more than once, they should be evaluated by a healthcare provider immediately.
+- name: Dizziness
+  category: physical
+  severity: moderate
+  description: Feeling lightheaded, unsteady, or like the surroundings are spinning.
+  flags:
+  - if dizziness does not go away or worsens over time
+  - if it prevents standing or walking safely
+  guidance: Have the person sit or lie down until dizziness passes. If the spinning sensation persists or gets worse instead of better, they should see a doctor.
+- name: Balance problems
+  category: physical
+  severity: moderate
+  description: Difficulty maintaining balance or coordination, such as stumbling or feeling unsteady on your feet.
+  flags:
+  - if you are unable to walk steadily due to poor balance
+  - if balance issues get worse instead of better
+  guidance: Avoid activities that require coordination (like driving or sports) until balance improves. If someone cannot stand or walk without nearly falling, or if balance keeps deteriorating, seek medical evaluation.
+- name: Blurred vision
+  category: physical
+  severity: moderate
+  description: Vision that is not sharp or clear, making objects look fuzzy or out of focus.
+  flags:
+  - if double vision (seeing two images) occurs
+  - if vision does not return to normal after rest
+  guidance: Rest the eyes by avoiding reading or screen time for a while. If vision remains blurry or if the person starts seeing double, they should get medical care quickly.
+- name: Sensitivity to light
+  category: physical
+  severity: low
+  description: Feeling uncomfortable or in pain when exposed to bright light, which can worsen headache or eye strain.
+  guidance: Stay in a dim or softly lit environment if bright light bothers the person. This usually improves with time; if it does not improve after a few days or grows worse, consult a healthcare provider.
+- name: Sensitivity to noise
+  category: physical
+  severity: low
+  description: Finding loud or busy sounds overwhelming or painful, more so than usual.
+  guidance: Keep the environment quiet and avoid loud noises until this sensitivity lessens. If the noise sensitivity remains very strong over time or gets worse, seek medical advice.
+- name: Fatigue or low energy
+  category: physical
+  severity: low
+  description: Feeling unusually tired or lacking energy, even after normal amounts of rest.
+  flags:
+  - if the fatigue worsens instead of improving over a few days
+  - if low energy prevents basic daily activities
+  guidance: It is normal to tire more easily. The person should get plenty of rest. If they continue to be extremely fatigued or it is not improving after several days, they should see a healthcare provider.
+- name: Confusion or disorientation
+  category: cognitive
+  severity: moderate
+  description: Feeling confused or having difficulty understanding where you are, what you are doing, or the time and situation around you.
+  flags:
+  - if the person cannot recognize familiar people or places
+  - if confusion gets worse or returns after initially clearing
+  guidance: Some confusion is common immediately after a concussion and should improve with time. If someone still does not know who or where they are, or if their confusion is worsening, seek medical attention immediately.
+- name: Feeling slowed down
+  category: cognitive
+  severity: moderate
+  description: A sensation that your thoughts, movements, or reactions are slower than normal, as if you are moving in slow motion or through a haze.
+  flags:
+  - if this feeling is very pronounced or does not improve after a few days
+  - if it interferes significantly with everyday activities
+  guidance: It is common to feel like you are thinking and reacting more slowly after a concussion. This typically gets better with rest. If the slow feeling is severe or is not improving after a few days, a medical check-up is advised.
+- name: Difficulty concentrating
+  category: cognitive
+  severity: moderate
+  description: Trouble focusing on tasks or staying attentive, making it hard to concentrate on work, school, or conversations.
+  flags:
+  - if they cannot focus enough to do simple tasks or schoolwork
+  - if concentration issues persist for more than a week
+  guidance: Limit distractions and give the brain breaks; concentration should gradually improve. If they still cannot focus on basic tasks after several days, or if it is getting worse, have a healthcare provider evaluate the situation.
+- name: Difficulty remembering
+  category: cognitive
+  severity: moderate
+  description: Trouble recalling information or events. This can include forgetting things that happened recently or having gaps in memory (especially around the time of injury).
+  flags:
+  - if important events or personal information cannot be remembered
+  - if memory problems do not improve or worsen over a few days
+  guidance: Memory may be spotty after a concussion, particularly for the moments around the injury. It should get better with time. If there are persistent large gaps in memory or ongoing difficulty remembering everyday things, seek medical advice.
+- name: Irritability
+  category: emotional
+  severity: low
+  description: Being more easily annoyed or angered than usual; having a shorter fuse.
+  flags:
+  - if irritability is extreme or involves unusual aggression
+  - if mood or personality changes do not subside over time
+  guidance: Be patient and create a calm environment, as the person might get irritated more easily. If their irritability is very intense, causes them to act out aggressively, or continues for a long time, consult a healthcare provider.
+- name: Sadness
+  category: emotional
+  severity: low
+  description: Feeling unusually sad, down, or depressed compared to normal.
+  flags:
+  - if feelings of sadness are very intense or include hopelessness
+  - if depressed mood persists for more than a couple of weeks
+  guidance: Feeling down can happen after concussion but should lift as the person recovers. If the sadness is very deep, or lasts longer than a week or two without improvement, they should talk to a doctor or mental health professional.
+- name: Anxiety
+  category: emotional
+  severity: low
+  description: Feeling nervous, worried, or on edge more than normal after the injury.
+  flags:
+  - if anxiety escalates to panic attacks
+  - if constant worry is disrupting sleep or daily life
+  guidance: Try to keep calm and relaxed; mild anxiety often improves with reassurance and rest. If anxiety is overwhelming, causing panic, or not letting up over time, seek guidance from a medical or mental health professional.
+- name: Drowsiness
+  category: sleep
+  severity: low
+  description: Feeling unusually sleepy or lethargic during the day, and having trouble staying awake or alert.
+  flags:
+  - if it becomes difficult to wake the person up fully
+  - if excessive sleepiness gets worse rather than better
+  guidance: It is normal to be sleepier after a concussion. Ensure the person gets enough sleep at night and rest during the day. However, if they cannot be awakened easily or are increasingly difficult to arouse, seek medical care immediately.
+- name: Sleeping more than usual
+  category: sleep
+  severity: low
+  description: Needing to sleep much longer than normal or napping more often, and still feeling sleepy.
+  flags:
+  - if the person is very hard to wake even after extended sleep
+  - if excessive sleeping continues beyond the first few days after injury
+  guidance: Extra sleep can be part of recovery as the brain heals. Caregivers should check in periodically. If someone continues to sleep excessively and is difficult to wake after the initial recovery days, they should see a doctor to ensure everything is okay.
+- name: Difficulty falling asleep
+  category: sleep
+  severity: low
+  description: Finding it harder than usual to fall asleep at night or taking a much longer time to do so.
+  flags:
+  - if the inability to fall asleep lasts for several nights
+  - if lack of sleep is causing extreme fatigue or other symptoms
+  guidance: Maintain a regular bedtime and a quiet, dark environment to help with sleep. If insomnia persists for many nights or leads to severe tiredness or worsening symptoms, seek advice from a healthcare provider.
+- name: Sleeping less than usual
+  category: sleep
+  severity: low
+  description: Getting fewer hours of sleep than normal or frequently waking up, resulting in overall reduced sleep.
+  flags:
+  - if significantly reduced sleep continues for more than a few nights
+  - if ongoing lack of sleep worsens other symptoms or well-being
+  guidance: Some people have trouble getting as much sleep after a concussion. Try to rest even if actual sleep time is less. If a person consistently cannot get enough sleep and this is affecting their recovery or daily function, they should consult a healthcare provider.
+- name: Neck pain
+  category: red flag
+  severity: high
+  description: Pain, soreness, or tenderness in the neck following the head injury.
+  guidance: Neck pain can indicate a serious neck or spinal injury. Keep the person still and seek emergency medical care immediately to rule out damage to the spine.
+- name: Double vision
+  category: red flag
+  severity: high
+  description: Seeing two images of a single object (seeing double) rather than one clear image.
+  guidance: Double vision after a head injury is an emergency warning sign. The person should be evaluated by a medical professional right away, as it may signal serious brain or eye injury.
+- name: Weakness or numbness in limbs
+  category: red flag
+  severity: high
+  description: Weakness (loss of strength) or numbness/tingling in the arms or legs after the injury.
+  guidance: Weakness or a pins-and-needles feeling in the limbs could mean nerve damage or a severe injury. This situation requires immediate medical attention.
+- name: Seizure
+  category: red flag
+  severity: high
+  description: A convulsion or uncontrolled shaking of the body (seizure) that occurs after the head injury.
+  guidance: If a person has a seizure after a concussion, call emergency services immediately. A seizure indicates a serious brain injury that needs urgent medical evaluation.
+- name: Loss of consciousness
+  category: red flag
+  severity: high
+  description: A temporary loss of awareness or being knocked out (blacking out), even for a brief moment.
+  guidance: Any loss of consciousness after a head injury is serious. Seek immediate medical care if someone blacks out or does not respond, even if they wake up moments later.

@@ -1,0 +1,30 @@
+{
+  "test_id": "f1_1_basic_freeform",
+  "input": {
+    "user_input": "My 10-year-old daughter fell and hit her head during soccer practice yesterday. She felt dizzy, had a headache, and was confused for a bit. She seems better today, but I'm not sure if she needs to sit out longer."
+  },
+  "expected": {
+    "draft_responses": {
+      "injury_date": {
+        "value": "2025-04-16",
+        "certainty": "medium",
+        "thought": "The phrase 'yesterday during soccer practice' suggests a clear recent injury date."
+      },
+      "symptoms": {
+        "value": [
+          "Dizziness",
+          "Headache",
+          "Confusion or disorientation"
+        ],
+        "certainty": "high",
+        "thought": "Mentions of 'dizzy', 'headache', and 'confused' map clearly to known concussion symptoms."
+      },
+      "injury_context": {
+        "value": "Fell and hit head during soccer practice",
+        "certainty": "high",
+        "thought": "Describes an impact scenario involving a fall and head strike."
+      }
+    },
+    "summary_thought": "User reports a recent head impact during soccer, followed by classic concussion symptoms like dizziness and confusion. Situation suggests a likely mild concussion."
+  }
+}

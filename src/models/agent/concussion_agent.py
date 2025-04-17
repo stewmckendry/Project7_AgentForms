@@ -18,10 +18,10 @@ QUESTION_HANDLERS = {
 }
 
 class ConcussionAgent:
-    def __init__(self, yaml_path="data/protocols/concussion_flow.yaml"):
+    def __init__(self):
         logger.info("Initializing ConcussionAgent")
-        self.flow = load_concussion_flow(yaml_path)      # full stage-based flow
-        self.known_questions = extract_question_list_from_yaml(yaml_path)  # flat metadata list
+        self.flow = load_concussion_flow()      # full stage-based flow
+        self.known_questions = extract_question_list_from_yaml()  # flat metadata list
         self.responses = {}
         self.current_stage = 0
         self.current_question = 0

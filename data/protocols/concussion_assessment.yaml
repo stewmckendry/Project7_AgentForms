@@ -1,0 +1,84 @@
+stages:
+- name: Initial Screening
+  description: Basic information about the incident
+  questions:
+  - id: reporter_role
+    prompt: Who are you reporting this for (e.g., your child, a player)?
+    type: text
+    intent: establish who is reporting (e.g., parent, coach)
+    mode: clarify
+    followup_ideas:
+    - Are you with the player right now?
+    - "Have you seen how they\u2019re behaving since the injury?"
+  - id: injury_date
+    prompt: When did the injury occur?
+    type: date
+    intent: determine when the injury occurred
+    mode: clarify
+    followup_ideas:
+    - Was it during a game or practice?
+    - How long ago was that?
+  - id: injury_context
+    prompt: What happened at the time of the injury?
+    type: text
+    intent: assess the type and risk of impact
+    mode: probe
+    followup_ideas:
+    - What part of the head was hit?
+    - Was it a hard hit or more of a bump?
+    - Were they wearing a helmet?
+  - id: symptoms
+    prompt: What symptoms did the player experience after the incident?
+    type: list
+    parse_with: symptom_extractor
+    intent: detect presence and variety of symptoms
+    mode: probe
+    followup_ideas:
+    - Did they feel nauseous, dizzy, or confused?
+    - Were the symptoms immediate or delayed?
+    - Which ones seemed the worst?
+  - id: lost_consciousness
+    prompt: Did the player lose consciousness?
+    type: boolean
+    intent: detect signs of serious injury
+    mode: clarify
+    followup_ideas:
+    - Did they go silent or lie still?
+    - Did they remember what happened after?
+    - How long were they unresponsive?
+- name: Medical Evaluation
+  questions:
+  - id: seen_provider
+    prompt: Has the player been seen by a healthcare provider?
+    type: boolean
+    intent: assess whether medical advice has been sought
+    mode: clarify
+    followup_ideas:
+    - Did a trainer or medic check them right away?
+    - Was any diagnosis made?
+  - id: diagnosed_concussion
+    prompt: Have they been officially diagnosed with a concussion?
+    type: boolean
+    intent: confirm medical diagnosis
+    mode: clarify
+    followup_ideas:
+    - What did the doctor say?
+    - Was there an official diagnosis?
+- name: Return to Play Readiness
+  questions:
+  - id: still_symptomatic
+    prompt: Is the player still experiencing symptoms?
+    type: boolean
+    intent: determine if symptoms are ongoing
+    mode: clarify
+    followup_ideas:
+    - Which symptoms are still lingering?
+    - Are things improving or getting worse?
+  - id: cleared_to_play
+    prompt: Has the player been cleared to return to play by a professional?
+    type: boolean
+    intent: confirm medical clearance for return
+    mode: clarify
+    followup_ideas:
+    - Did a doctor or athletic therapist give the go-ahead?
+    - Was that part of a return-to-play protocol?

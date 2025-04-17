@@ -1,0 +1,31 @@
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore environment and IDE settings
+.env
+*.env
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Ignore OS and system files
+.DS_Store
+Thumbs.db
+
+# Ignore test files and notebooks unless needed in container
+test/
+notebooks/
+
+# Ignore logs and outputs
+logs/
+outputs/
+
+# Ignore git files
+.git/
+.gitignore
+
+# Avoid large samples unless explicitly needed
+data/samples/

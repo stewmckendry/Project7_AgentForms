@@ -1,5 +1,8 @@
+import re
+import json
 from datetime import date, datetime
 from src.models.llm_openai import call_openai_chat
+from src.utils.protocols.load_symptom_reference import match_symptoms, load_symptom_reference
 from src.utils.logging.logger import setup_logger
 logger = setup_logger()
 
@@ -117,63 +120,66 @@ def llm_interpret_yes_no(input_text):
         "thought": thought
     }
 
-def llm_extract_symptoms(input_text):
+def llm_extract_symptoms(user_input, symptom_reference=None):
+    """
+    Extract and match symptoms using LLM, enriched with a known symptom reference.
+    """
+    if not symptom_reference:
+        symptom_reference = load_symptom_reference()  # fallback if not passed
 
-    logger.info(f"Extracting symptoms with LLM for input: {input_text}")
-
-    system_prompt = (
-        "You are a helpful assistant trained to identify concussion symptoms from a user's input.\n"
-        "\n"
-        "Your task:\n"
-        "1. Extract any symptoms described, using clear terms like: headache, dizziness, nausea, confusion, blurry vision, sensitivity to light, etc.\n"
-        "2. Estimate how confident you are in your extraction: high, medium, or low.\n"
-        "3. First, explain your reasoning.\n"
-        "4. Then, on the final line, output:\n"
-        "   symptoms: [comma-separated list] | certainty: <high|medium|low>\n"
-        "\n"
-        "Examples:\n"
-        "Input: 'He had a headache and felt dizzy' → symptoms: [headache, dizziness] | certainty: high\n"
-        "Input: 'She just seemed a bit off' → symptoms: [] | certainty: low"
+    # Create a reference summary to guide the LLM
+    reference_summary = "\n".join(
+        [f"- {s['name']}: {s['description']}" for s in symptom_reference]
     )
 
-    user_prompt = f"The user said: {input_text}"
-    llm_response = call_openai_chat(system_prompt, user_prompt)
-    lines = llm_response.strip().splitlines()
+    system_prompt = (
+        "You are an assistant trained to detect possible concussion symptoms based on a user's description.\n"
+        "Compare what the user says to known concussion symptoms. If a symptom matches, include it in your list.\n"
+        "Known symptoms include:\n"
+        f"{reference_summary}\n\n"
+        "Respond with:\n"
+        "- A JSON list of matched symptom names\n"
+        "- Then a short sentence describing your reasoning\n"
+        "**IMPORTANT**: Only include symptoms that are explicitly or implicitly present in the user's input.\n"
+        "Return format:\n"
+        "{\n"
+        '  "value": [symptom1, symptom2],\n'
+        '  "thought": "Your reasoning here."\n'
+        "}"
+    )
 
-    symptoms = []
-    certainty = "low"
-    thought = ""
+    user_prompt = f"The user said: {user_input}"
 
-    if lines:
-        last_line = lines[-1].lower().strip()
-        if "symptoms:" in last_line and "certainty:" in last_line:
-            try:
-                parts = last_line.replace("symptoms:", "").split("|")
-                symptoms_part = parts[0].strip()
-                certainty = parts[1].replace("certainty:", "").strip()
+    raw = call_openai_chat(system_prompt, user_prompt)
 
-                # Parse symptom list from string
-                symptoms = [s.strip() for s in symptoms_part.strip("[]").split(",") if s.strip()]
-                thought = "\n".join(lines[:-1]).strip()
-            except Exception:
-                thought = llm_response.strip()
-        else:
-            thought = llm_response.strip()
-    
-    # Fallbacks if something went wrong or symptoms/certainty is missing
-    if not isinstance(symptoms, list):
-        symptoms = []
-    if not certainty or certainty not in {"low", "medium", "high"}:
-        certainty = "low"
-    
-    logger.info(f"Parsed symptoms: {symptoms}, Certainty: {certainty}, Thought: {thought}")
+    # Try to extract JSON
+    try:
+        json_match = re.search(r"{.*}", raw, re.DOTALL)
+        parsed = json.loads(json_match.group())
+    except Exception:
+        return {
+            "value": [],
+            "certainty": "low",
+            "thought": "Unable to parse LLM output",
+            "parsed_by": "llm",
+            "original_input": user_input,
+        }
+
+    matched = parsed.get("value", [])
+    matched_symptoms = []
+    for name in matched:
+        for s in symptom_reference:
+            if name.lower() == s["name"].lower():
+                matched_symptoms.append(s)
+                break
 
     return {
-        "value": symptoms,
-        "certainty": certainty,
+        "value": matched,
+        "certainty": "high" if matched else "low",
         "parsed_by": "llm",
-        "original_input": input_text,
-        "thought": thought
+        "original_input": user_input,
+        "thought": parsed.get("thought", ""),
+        "symptom_info": matched_symptoms,
     }
 
 def parse_with_fallback(input_text, type_hint):
