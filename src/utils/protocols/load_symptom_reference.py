@@ -1,19 +1,12 @@
+# src/utils/protocols/load_symptom_reference.py
 import yaml
 from pathlib import Path
-from src.utils.logging.logger import setup_logger
-logger = setup_logger()
+from functools import lru_cache
 
-# Get the project root (assumes this script is in src/ or notebooks/ folder)
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent  # Adjust as needed
-
-
-def load_symptom_reference(path="data/protocols/symptoms_reference.yaml"):
-    load_path = PROJECT_ROOT / path
-    if not load_path.exists():
-        logger.error(f"Concussion flow file not found at {load_path}")
-        raise FileNotFoundError(f"Concussion flow file not found at {load_path}")
-    logger.info(f"Loading concussion flow from {load_path}")
-    with open(load_path, "r") as f:
+@lru_cache(maxsize=1)
+def load_symptom_reference(path: str = "data/protocols/symptoms_reference.yaml") -> dict:
+    """Load the symptom reference YAML used to enrich symptom values."""
+    with open(path, "r") as f:
         return yaml.safe_load(f)
 
 

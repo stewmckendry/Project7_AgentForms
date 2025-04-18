@@ -11,6 +11,7 @@ from src.models.agent.concussion_agent import ConcussionAgent
 from src.models.agent.rtp_qa import generate_rtp_response_rule_based, generate_rtp_response_llm
 from src.utils.protocols.load_concussion_flow import load_concussion_flow
 from src.utils.protocols.load_symptom_reference import load_symptom_reference
+from src.utils.protocols.load_rtp import load_return_to_play_protocol
 
 app = FastAPI()
 
@@ -24,7 +25,7 @@ app.add_middleware(
 
 agent = ConcussionAgent()
 symptom_reference = load_symptom_reference("data/protocols/symptoms_reference.yaml")
-rtp_reference = load_concussion_flow("data/protocols/return_to_play.yaml")
+rtp_reference = load_return_to_play_protocol()
 
 @app.get("/ping")
 def ping():

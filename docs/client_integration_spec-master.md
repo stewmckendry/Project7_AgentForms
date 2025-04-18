@@ -1,4 +1,4 @@
-# 💡 Client-Side Integration Spec: Concussion Assistant (Streamlit)
+x# 💡 Client-Side Integration Spec: Concussion Assistant (Streamlit)
 
 ## 🧠 Purpose
 Stitch together the full user-facing experience — collecting info, guiding assessment, asking follow-up questions, and answering RTP queries — into a conversational, friendly experience.

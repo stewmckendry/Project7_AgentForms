@@ -42,7 +42,9 @@ if mode == "Assess a possible concussion":
         st.subheader("📋 Step 3: Get Return-to-Play Guidance")
         if st.button("Generate guidance"):
             guidance_res = requests.post(f"{API_URL}/guidance", json={"assessment_bundle": st.session_state.assessment_bundle})
-            st.markdown(guidance_res.json()["summary_markdown"])
+            guidance_data = guidance_res.json()
+            st.markdown(guidance_data["summary"])
+            st.markdown(guidance_data["full_guidance"])
 
 elif mode == "Ask about return to play":
     st.subheader("💬 Ask about an activity")
